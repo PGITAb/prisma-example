@@ -452,20 +452,14 @@ type PostWhereInput struct {
 }
 
 type UserWhereInput struct {
-	ID                 *string          `json:"id,omitempty"`
-	IDNot              *string          `json:"id_not,omitempty"`
-	IDIn               []string         `json:"id_in,omitempty"`
-	IDNotIn            []string         `json:"id_not_in,omitempty"`
-	IDLt               *string          `json:"id_lt,omitempty"`
-	IDLte              *string          `json:"id_lte,omitempty"`
-	IDGt               *string          `json:"id_gt,omitempty"`
-	IDGte              *string          `json:"id_gte,omitempty"`
-	IDContains         *string          `json:"id_contains,omitempty"`
-	IDNotContains      *string          `json:"id_not_contains,omitempty"`
-	IDStartsWith       *string          `json:"id_starts_with,omitempty"`
-	IDNotStartsWith    *string          `json:"id_not_starts_with,omitempty"`
-	IDEndsWith         *string          `json:"id_ends_with,omitempty"`
-	IDNotEndsWith      *string          `json:"id_not_ends_with,omitempty"`
+	ID                 *int32           `json:"id,omitempty"`
+	IDNot              *int32           `json:"id_not,omitempty"`
+	IDIn               []int32          `json:"id_in,omitempty"`
+	IDNotIn            []int32          `json:"id_not_in,omitempty"`
+	IDLt               *int32           `json:"id_lt,omitempty"`
+	IDLte              *int32           `json:"id_lte,omitempty"`
+	IDGt               *int32           `json:"id_gt,omitempty"`
+	IDGte              *int32           `json:"id_gte,omitempty"`
 	Email              *string          `json:"email,omitempty"`
 	EmailNot           *string          `json:"email_not,omitempty"`
 	EmailIn            []string         `json:"email_in,omitempty"`
@@ -503,7 +497,7 @@ type UserWhereInput struct {
 }
 
 type UserWhereUniqueInput struct {
-	ID    *string `json:"id,omitempty"`
+	ID    *int32  `json:"id,omitempty"`
 	Email *string `json:"email,omitempty"`
 }
 
@@ -520,7 +514,6 @@ type UserCreateOneWithoutPostsInput struct {
 }
 
 type UserCreateWithoutPostsInput struct {
-	ID    *string `json:"id,omitempty"`
 	Email *string `json:"email,omitempty"`
 	Name  string  `json:"name"`
 }
@@ -556,7 +549,6 @@ type PostUpdateManyMutationInput struct {
 }
 
 type UserCreateInput struct {
-	ID    *string                           `json:"id,omitempty"`
 	Email *string                           `json:"email,omitempty"`
 	Name  string                            `json:"name"`
 	Posts *PostCreateManyWithoutAuthorInput `json:"posts,omitempty"`
@@ -792,7 +784,7 @@ func (instance UserExecArray) Exec(ctx context.Context) ([]User, error) {
 }
 
 type User struct {
-	ID    string  `json:"id"`
+	ID    int32   `json:"id"`
 	Email *string `json:"email,omitempty"`
 	Name  string  `json:"name"`
 }
@@ -1263,7 +1255,7 @@ func (instance UserPreviousValuesExecArray) Exec(ctx context.Context) ([]UserPre
 }
 
 type UserPreviousValues struct {
-	ID    string  `json:"id"`
+	ID    int32   `json:"id"`
 	Email *string `json:"email,omitempty"`
 	Name  string  `json:"name"`
 }

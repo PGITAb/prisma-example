@@ -1,5 +1,5 @@
 type User {
-  id: ID! @id
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "MY_SEQUENCE" initialValue:1 allocationSize:100)
   email: String @unique
   name: String!
   posts: [Post!]!
